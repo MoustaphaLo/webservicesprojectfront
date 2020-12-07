@@ -1,0 +1,45 @@
+<h3>Ajouter un compte</h3>
+<div style="width: 400px;">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="prenom">Solde</label>
+            <input  type="text" class="form-control" id="solde" required [(ngModel)]="compte.solde" name="solde">
+        </div>
+
+        <div class="form-group">
+            <label for="prenom">Decouvert</label>
+            <input  type="text" class="form-control" id="decouvert" required [(ngModel)]="compte.decouvert" name="decouvert">
+        </div>
+        <div class="form-group">
+            <label for="code">Code Agence</label>
+            <input  type="text" class="form-control" id="code" required [(ngModel)]="compte.agence.code" name="code">
+        </div>
+        <div class="form-group">
+            <label for="nom_agence">Nom agence</label>
+            <input  type="text" class="form-control" id="nom_agence" required [(ngModel)]="compte.agence.nom_agence" name="nom_agence">
+        </div>
+        <div class="form-group">
+            <label for="address">Address agence</label>
+            <input  type="text" class="form-control" id="address" required [(ngModel)]="compte.agence.address" name="address">
+        </div>
+        <div class="form-group">
+            <label for="telephone">Numéro agence</label>
+            <input  type="text" class="form-control" id="telephone" required [(ngModel)]="compte.agence.telephone" name="telephone">
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prenom</label>
+            <input  type="text" class="form-control" id="prenom" required [(ngModel)]="compte.client.prenom" name="prenom">
+        </div>
+        <div class="form-group">
+            <label for="nom">Nom</label>
+            <input  type="text" class="form-control" id="nom" required [(ngModel)]="compte.client.nom" name="nom">
+        </div>
+
+        <div class="form-group">
+            <label for="date_naissance">Date de Naissance</label>
+            <input  type="text" class="form-control" id="date_naissance" required [(ngModel)]="compte.client.date_naissance" name="date_naissance">
+        </div>
+        <!--<button type="submit" class="btn btn-success" (click)="newClient()">Ajouter</button>-->
+        <button type="submit" class="btn btn-success"> Update compte infos</button>
+    </form>
+</div>

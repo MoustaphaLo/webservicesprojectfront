@@ -1,0 +1,26 @@
+<h2>Details du compte</h2>
+<hr/>
+<div *ngIf="compte">
+    <div>
+        <label><b>ID:</b> </label>{{compte.id}}
+    </div>
+    <div>
+        <label><b>Solde:</b> </label>{{compte.solde}}
+    </div>
+    <div>
+        <label><b>Decouvert:</b> </label>{{compte.decouvert}}
+    </div>
+    <div>
+        <label><b>Prenom:</b></label>{{compte.client.prenom}}
+    </div>
+    <div>
+        <label><b>Nom:</b></label>{{compte.client.nom}}
+    </div>
+    <div>
+        <label><b>Date de naissance:</b></label>{{compte.client.date_naissance}}
+    </div>
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Liste comptes</button><br>

@@ -1,0 +1,30 @@
+<h3>Ajouter une agence</h3>
+<div [hidden]="submitted" style="width: 400px;">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="code">Code</label>
+            <input  type="text" class="form-control" id="code" required [(ngModel)]="agence.code" name="code">
+        </div>
+
+        <div class="form-group">
+            <label for="nom">Nom</label>
+            <input  type="text" class="form-control" id="nom_agence" required [(ngModel)]="agence.nom_agence" name="nom_agence">
+        </div>
+
+        <div class="form-group">
+            <label for="date_naissance">Address</label>
+            <input  type="text" class="form-control" id="address" required [(ngModel)]="agence.address" name="address">
+        </div>
+
+        <div class="form-group">
+            <label for="date_naissance">Telephone</label>
+            <input  type="text" class="form-control" id="telephone" required [(ngModel)]="agence.telephone" name="telephone">
+        </div>
+        <!--<button type="submit" class="btn btn-success" (click)="newClient()">Ajouter</button>-->
+        <button type="submit" class="btn btn-success">Ajouter</button>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+    <h4>Client ajouté!</h4>
+</div>

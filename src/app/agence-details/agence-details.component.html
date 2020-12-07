@@ -1,0 +1,20 @@
+<h2>Details de l'agence</h2>
+<hr/>
+<div *ngIf="agence">
+    <div>
+        <label><b>Code: </b> </label>{{agence.code}}
+    </div>
+    <div>
+        <label><b>Nom: </b></label>{{agence.nom_agence}}
+    </div>
+    <div>
+        <label><b>Address: </b></label>{{agence.address}}
+    </div>
+    <div>
+        <label><b>Telephone: </b></label>{{agence.telephone}}
+    </div>
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Liste agences</button><br>

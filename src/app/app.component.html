@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+        <a routerLink="clients" class="nav-link" routerLinkActive="active">Liste des clients</a>
+    </li>
+    <li class="nav-item">
+        <a routerLink="add-client" class="nav-link" routerLinkActive="active">Ajouter un client</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="agences" class="nav-link" routerLinkActive="active">Liste des agences</a>
+  </li>
+    <li class="nav-item">
+      <a routerLink="add-agence" class="nav-link" routerLinkActive="active">Ajouter une Agence</a>
+  </li>
+  <li class="nav-item">
+    <a routerLink="comptes" class="nav-link" routerLinkActive="active">Liste des comptes</a>
+    </li>
+<li class="nav-item">
+  <a routerLink="add-compte" class="nav-link" routerLinkActive="active">Ajouter un compte</a>
+</li>
+  </ul>
+</nav>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+  <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<!--<footer class="footer">
+  <div class="container">
+      <span>All Rights Reserved 2019 @JavaGuides</span>
+  </div>
+</footer>-->

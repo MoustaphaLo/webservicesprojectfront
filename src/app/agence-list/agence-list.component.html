@@ -1,0 +1,32 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Liste des Agences</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Nom</th>
+                    <th>Address</th>
+                    <th>Telephone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let agence of agence | async">
+                    <td>{{agence.code}}</td>
+                    <td>{{agence.nom_agence}}</td>
+                    <td>{{agence.address}}</td>
+                    <td>{{agence.telephone}}</td>
+                    <td>
+                    <button (click)="updateAgence(agence.code)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                    <button (click)="deleteAgence(agence.code)" class="btn btn-danger">Delete</button>
+                    <button (click)="agenceDetails(agence.code)" class="btn btn-info" style="margin-left: 10px">Details</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
