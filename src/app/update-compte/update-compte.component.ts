@@ -1,3 +1,4 @@
+import { AgenceService } from './../agence.service';
 import { Agence } from './../Agence';
 import { Compte } from './../Compte';
 import { Component, OnInit } from '@angular/core';
@@ -13,27 +14,29 @@ import { Client } from '../client';
 export class UpdateCompteComponent implements OnInit {
 
   id: number;
+  code: string;
   agence: Agence = new Agence();
   client: Client = new Client();
   compte: Compte;
-  constructor(private route: ActivatedRoute, private router: Router, private compteService: CompteService) { }
+  constructor(private agenceService: AgenceService, private route: ActivatedRoute, private router: Router, private compteService: CompteService) { }
 
   ngOnInit(){
-    this.compte = new Compte(this.agence.code, this.agence.nom_agence, this.agence.address, this.agence.telephone, this.client.prenom, this.client.nom, this.client.date_naissance);
+    this.compte = new Compte(this.client.prenom, this.client.nom, this.client.date_naissance);
 
     this.id = this.route.snapshot.params['id'];
+    this.code = this.route.snapshot.params['code'];
 
-    this.compteService.getCompte(this.id).subscribe(data => {
+    this.agenceService.getCompteById(this.code,this.id).subscribe(data => {
       console.log(data)
       this.compte = data;
     }, error => console.log(error));
   }
 
   updateCompte() {
-    this.compteService.updateCompte(this.id, this.compte).subscribe(data => {
+    this.agenceService.updateAccount(this.code, this.id, this.compte).subscribe(data => {
       console.log(data);
-      this.compte = new Compte(this.agence.code, this.agence.nom_agence, this.agence.address, this.agence.telephone, this.client.prenom, this.client.nom, this.client.date_naissance);
-      this.gotoList();
+      this.compte = new Compte(this.client.prenom, this.client.nom, this.client.date_naissance);
+      this.gotoList(this.code);
     }, error => console.log(error));
   }
 
@@ -41,7 +44,7 @@ export class UpdateCompteComponent implements OnInit {
     this.updateCompte();
   }
 
-  gotoList() {
-    this.router.navigate(['/comptes'])
+  gotoList(code: string) {
+    this.router.navigate(['/agence-details', code])
   }
 }

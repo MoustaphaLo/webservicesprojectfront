@@ -19,11 +19,11 @@ export class CompteListComponent implements OnInit {
   }
 
   reloadData() {
-    this.compte = this.compteService.getCompteList();
+    //this.compte = this.compteService.getCompteList();
   }
 
-  deleteCompte(id: number) {
-    this.compteService.deleteCompte(id).subscribe(data => {
+  deleteCompte(code: string, id: number) {
+    this.compteService.deleteCompte(code, id).subscribe(data => {
       console.log(data);
       this.reloadData();
     },

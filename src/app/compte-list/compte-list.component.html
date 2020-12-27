@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h2>Liste des clients</h2>
+        <h2>Liste des comptes</h2>
     </div>
     <div class="panel-body">
         <table class="table table-striped">
@@ -15,17 +15,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let compte of compte | async">
+                <tr *ngFor="let compte of compte">
                     <td>{{compte.id}}</td>
                     <td>{{compte.solde}}</td>
                     <td>{{compte.decouvert}}</td>
-                    <td>{{compte.agence.code}}</td>
                     <td>
                         {{compte.client.prenom}} {{compte.client.nom}}
                     </td>
                     <td>
                     <button (click)="updateCompte(compte.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
-                    <button (click)="deleteCompte(compte.id)" class="btn btn-danger">Delete</button>
+                    <!--<button (click)="deleteCompte(compte.id)" class="btn btn-danger">Delete</button>-->
                     <button (click)="compteDetails(compte.id)" class="btn btn-info" style="margin-left: 10px">Details</button></td>
                 </tr>
             </tbody>

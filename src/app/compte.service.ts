@@ -6,8 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CompteService {
+  //code: string = '';
 
-  private baseUrl = 'http://localhost:8281/compte/compte-list';
+  private baseUrl = `http://localhost:8080/compte/agence/agence-list`;
+  private baseUrl_ = `http://localhost:8080/agence/compte-list`;
 
 
   constructor(private http: HttpClient) { }
@@ -16,19 +18,23 @@ export class CompteService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  createCompte(compte: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}`, compte);
+  createCompte(code: string, compte: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}/${code}/compte-list`, compte);
   }
 
-  updateCompte(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${id}`, value);
+  updateCompte(code: string, id: number, value: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/${code}/compte-list/${id}`, value);
   }
 
-  deleteCompte(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`, {responseType: 'text'});
+  deleteCompte(code: string, id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${code}/compte-list/${id}`, {responseType: 'text'});
+  }
+  deleteAccount(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl_}/${id}`, {responseType: 'text'});
   }
 
-  getCompteList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+
+  getCompteList(code: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${code}/compte-list`);
   }
 }

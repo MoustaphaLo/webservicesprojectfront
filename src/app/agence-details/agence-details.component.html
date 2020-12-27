@@ -1,20 +1,88 @@
-<h2>Details de l'agence</h2>
+<h2>Informations de l'agencce {{agence.code}}</h2>
 <hr/>
 <div *ngIf="agence">
     <div>
-        <label><b>Code: </b> </label>{{agence.code}}
-    </div>
-    <div>
         <label><b>Nom: </b></label>{{agence.nom_agence}}
     </div>
+    
     <div>
         <label><b>Address: </b></label>{{agence.address}}
     </div>
     <div>
         <label><b>Telephone: </b></label>{{agence.telephone}}
     </div>
+    <div>
+        <button (click)="createAccount()" class="btn btn-primary">Créer un compte</button><br>
+    </div>
+
+    <p>Les comptes associés à cet agences sont:</p>
+   <div class="panel-body">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Compte_id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Date de naissance</th>
+                <th>Solde</th>
+                <th>Découvert</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let compte of comptes">
+                <td>{{compte.id}}</td>
+                <td>{{compte.client.nom}}</td>
+                <td>{{compte.client.prenom}}</td>
+                <td>{{compte.client.date_naissance}}</td>
+                <td>{{compte.solde}}</td>
+                <td>{{compte.decouvert}}</td>
+                <td>
+                <button (click)="updateCompte(agence.code, compte.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                <!--<button (click)="deleteCompte(compte.id)" class="btn btn-danger">Delete</button>
+                <button (click)="clientDetails(client.id)" class="btn btn-info" style="margin-left: 10px">Details</button>--></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 </div>
 
 <br>
 <br>
+
 <button (click)="list()" class="btn btn-primary">Liste agences</button><br>
+
+<!--Add agence-->
+<div [hidden]="!newAccount" style="width: 400px;">
+    <h3>Ajouter un compte</h3>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="solde">Solde</label>
+            <input  type="text" class="form-control" id="solde" required [(ngModel)]="compte.solde" name="solde">
+        </div>
+
+        <div class="form-group">
+            <label for="decouvert">Decouvert</label>
+            <input  type="text" class="form-control" id="decouvert" required [(ngModel)]="compte.decouvert" name="decouvert">
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prenom du client</label>
+            <input  type="text" class="form-control" id="prenom" required [(ngModel)]="compte.client.prenom" name="prenom">
+        </div>
+        <div class="form-group">
+            <label for="nom">Nom du client</label>
+            <input  type="text" class="form-control" id="nom" required [(ngModel)]="compte.client.nom" name="nom">
+        </div>
+
+        <div class="form-group">
+            <label for="date_naissance">Date de Naissance</label>
+            <input  type="text" class="form-control" id="date_naissance" required [(ngModel)]="compte.client.date_naissance" name="date_naissance">
+        </div>
+        <!--<button type="submit" class="btn btn-success" (click)="newClient()">Ajouter</button>-->
+        <button type="submit" class="btn btn-success"> Créer compte</button>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+    <h4>Compte ajouté!</h4>
+</div>

@@ -1,4 +1,4 @@
-<h3>Ajouter un compte</h3>
+<h3>Update un compte</h3>
 <div style="width: 400px;">
     <form (ngSubmit)="onSubmit()">
         <div class="form-group">
@@ -9,22 +9,6 @@
         <div class="form-group">
             <label for="prenom">Decouvert</label>
             <input  type="text" class="form-control" id="decouvert" required [(ngModel)]="compte.decouvert" name="decouvert">
-        </div>
-        <div class="form-group">
-            <label for="code">Code Agence</label>
-            <input  type="text" class="form-control" id="code" required [(ngModel)]="compte.agence.code" name="code">
-        </div>
-        <div class="form-group">
-            <label for="nom_agence">Nom agence</label>
-            <input  type="text" class="form-control" id="nom_agence" required [(ngModel)]="compte.agence.nom_agence" name="nom_agence">
-        </div>
-        <div class="form-group">
-            <label for="address">Address agence</label>
-            <input  type="text" class="form-control" id="address" required [(ngModel)]="compte.agence.address" name="address">
-        </div>
-        <div class="form-group">
-            <label for="telephone">Numéro agence</label>
-            <input  type="text" class="form-control" id="telephone" required [(ngModel)]="compte.agence.telephone" name="telephone">
         </div>
         <div class="form-group">
             <label for="prenom">Prenom</label>

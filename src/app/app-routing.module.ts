@@ -21,15 +21,19 @@ const routes: Routes = [
   { path: 'update-client/:id', component: UpdateClientComponent },
   { path: 'client-details/:id', component: ClientDetailsComponent },
 
-  { path: 'agences', component: AgenceListComponent },
+  { path: 'agences',  component: AgenceListComponent },
   { path: 'add-agence', component: CreateAgenceComponent },
   { path: 'update-agence/:code', component: UpdateAgenceComponent },
-  { path: 'agence-details/:code', component: AgenceDetailsComponent },
+  { path: 'agence-details/:code', component: AgenceDetailsComponent,
+     children: [
+         {path: 'comptes', component: CompteComponent}]
+ },
+ { path: 'agence-details/:code/:id', component: UpdateCompteComponent},
 
-  { path: 'comptes', component: CompteListComponent },
-  { path: 'add-compte', component: CompteComponent },
-  { path: 'update-compte/:id', component: UpdateCompteComponent },
-  { path: 'compte-details/:id', component: CompteDetailsComponent }
+  //{ path: 'comptes', component: CompteListComponent },
+  //{ path: 'add-compte', component: CompteComponent },
+  //{ path: 'update-compte/:id', component: UpdateCompteComponent },
+  { path: 'compte-details/:id', component: CompteDetailsComponent}
 ];
 
 @NgModule({

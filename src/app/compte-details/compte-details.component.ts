@@ -21,7 +21,7 @@ export class CompteDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private compteService: CompteService) { }
 
   ngOnInit(){
-    this.compte = new Compte(this.agence.code, this.agence.nom_agence, this.agence.address, this.agence.telephone, this.client.prenom, this.client.nom, this.client.date_naissance);
+    this.compte = new Compte(/*this.agence.code, this.agence.nom_agence, this.agence.address, this.agence.telephone, */this.client.prenom, this.client.nom, this.client.date_naissance);
 
     this.id = this.route.snapshot.params['id'];
 
